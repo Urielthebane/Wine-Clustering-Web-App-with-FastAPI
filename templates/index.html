@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wine Clustering App</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        // Autofill sample data for quick testing
+        function fillSample() {
+            const sample = [14.2, 1.7, 2.4, 15.6, 127, 2.8, 3.06, 0.28, 2.29, 5.64, 1.04, 3.92, 1065];
+            const fields = document.querySelectorAll('input[name]');
+            fields.forEach((field, i) => field.value = sample[i]);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Wine Clustering App</h1>
+        <p>Enter wine features to predict its cluster.</p>
+
+        <div class="glass-form">
+            <form method="post">
+                <div class="grid">
+                    <input type="number" step="any" name="alcohol" placeholder="Alcohol" required>
+                    <input type="number" step="any" name="malic_acid" placeholder="Malic Acid" required>
+                    <input type="number" step="any" name="ash" placeholder="Ash" required>
+                    <input type="number" step="any" name="alcalinity_of_ash" placeholder="Alcalinity of Ash" required>
+                    <input type="number" step="any" name="magnesium" placeholder="Magnesium" required>
+                    <input type="number" step="any" name="total_phenols" placeholder="Total Phenols" required>
+                    <input type="number" step="any" name="flavanoids" placeholder="Flavanoids" required>
+                    <input type="number" step="any" name="nonflavanoid_phenols" placeholder="Nonflavanoid Phenols" required>
+                    <input type="number" step="any" name="proanthocyanins" placeholder="Proanthocyanins" required>
+                    <input type="number" step="any" name="color_intensity" placeholder="Color Intensity" required>
+                    <input type="number" step="any" name="hue" placeholder="Hue" required>
+                    <input type="number" step="any" name="od280_od315_of_diluted_wines" placeholder="OD280/OD315" required>
+                    <input type="number" step="any" name="proline" placeholder="Proline" required>
+                </div>
+                <div class="buttons">
+                    <button type="submit">Predict Cluster</button>
+                    <button type="button" onclick="fillSample()">Autofill Sample</button>
+                </div>
+            </form>
+
+            {% if prediction %}
+                <div class="result">
+                    <h2>{{ prediction }}</h2>
+                    <p class="confidence">Confidence Interval: <span>{{ confidence_interval }}</span></p>
+                </div>
+            {% endif %}
+        </div>
+
+        <p class="owner">Created by: <strong>Akinmusire Oluwankorinola Emmanuel</strong></p>
+    </div>
+</body>
+</html>

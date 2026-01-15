@@ -32,7 +32,7 @@ Clone the repository:
 
 Bash
 
-git clone https://github.com/your-username/wine-clustering-project.git
+git clone https://https://https://github.com/Urielthebane/Wine-Clustering-Web-App-with-FastAPI
 cd wine-clustering-project.py
 Create and Activate Virtual Environment:
 
